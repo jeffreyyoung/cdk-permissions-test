@@ -13,7 +13,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `cdk diff`        compare deployed stack with current state
 * `cdk synth`       emits the synthesized CloudFormation template
 
-
+```
 Andreas-MacBook-Pro:cdk-permissions-test jeffrey$ cdk deploy --profile dev
 
 ✨  Synthesis time: 8.99s
@@ -101,10 +101,27 @@ CdkPermissionsTestStack: creating CloudFormation changeset...
 API: s3:PutBucketPolicy Access Denied
 5:13:43 PM | ROLLBACK_IN_PROGRESS | AWS::CloudFormation::Stack    | CdkPermissionsTestStack
 The following resource(s) failed to create: [WebsiteBucketPolicyE10E3262, CustomCDKBucketDeployment8693BB6
-4968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF, Distribution830FAC52]. Rollback requested by us
-er.
-5:13:43 PM | ROLLBACK_IN_PROGRESS | AWS::CloudFormation::Stack    | CdkPermissionsTestStack
-The following resource(s) failed to create: [WebsiteBucketPolicyE10E3262, CustomCDKBucketDeployment8693BB6
-4968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF, Distribution830FAC52]. Rollback requested by us
-er.
-5:13:45 PM | DELETE_IN_PROGRESS   | AWS::CloudFront::Distribution | Distribution
+4968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF, Distribution830FAC52]. Rollback reque
+5:13:41 PM | CREATE_FAILED        | AWS::S3::Bu
+cketPolicy         | WebsiteBucketPolicyE10E326
+2
+API: s3:PutBucketPolicy Access Denied
+
+
+ ❌  CdkPermissionsTestStack failed: Error: The stack named CdkPermissionsTestStack failed creation, it may need to be manually deleted from the AWS console: ROLLBACK_COMPLETE: API: s3:PutBucketPolicy Access Denied
+    at FullCloudFormationDeployment.monitorDeployment (/Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:380:10236)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async deployStack2 (/Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:383:145458)
+    at async /Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:383:128776
+    at async run (/Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:383:126782)
+
+ ❌ Deployment failed: Error: Stack Deployments Failed: Error: The stack named CdkPermissionsTestStack failed creation, it may need to be manually deleted from the AWS console: ROLLBACK_COMPLETE: API: s3:PutBucketPolicy Access Denied
+    at deployStacks (/Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:383:129083)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async CdkToolkit.deploy (/Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:383:147507)
+    at async exec4 (/Users/jeffrey/.nvm/versions/node/v16.18.0/lib/node_modules/aws-cdk/lib/index.js:438:51799)
+
+Stack Deployments Failed: Error: The stack named CdkPermissionsTestStack failed creation, it may need to be manually deleted from the AWS console: ROLLBACK_COMPLETE: API: s3:PutBucketPolicy Access Denied
+```
