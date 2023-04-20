@@ -4,7 +4,8 @@ import * as cdk from 'aws-cdk-lib';
 import { CdkPermissionsTestStack } from '../lib/cdk-permissions-test-stack';
 
 const app = new cdk.App();
-new CdkPermissionsTestStack(app, 'CdkPermissionsTestStack', {
+new CdkPermissionsTestStack(app, 'CdkPermissionsTestStack2', {
+  env: { region: 'us-east-2'}
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
